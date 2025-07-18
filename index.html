@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NovaBuddy</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background-color: #fefae0;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    #buddy {
+      position: absolute;
+      width: 100px;
+      transition: transform 0.5s linear;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <img src="novabuddy.gif" id="buddy" alt="NovaBuddy" />
+
+  <script>
+    const buddy = document.getElementById('buddy');
+    let x = window.innerWidth / 2;
+    let y = window.innerHeight / 2;
+
+    buddy.style.left = x + 'px';
+    buddy.style.top = y + 'px';
+
+    document.addEventListener('click', (e) => {
+      x = e.clientX - 50; // Ajusta al centro del GIF
+      y = e.clientY - 50;
+
+      buddy.style.transform = `translate(${x}px, ${y}px)`;
+    });
+  </script>
+</body>
+</html>
